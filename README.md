@@ -5,7 +5,7 @@ You will need the following installed:
 - chisel (follow chisels way to install scala)
 - scala
 - mill
-- OSS yosys, icestorm, ...
+- OSS yosys, icestorm, ... https://github.com/YosysHQ/oss-cad-suite-build/releases
 
 Run:
 - make
