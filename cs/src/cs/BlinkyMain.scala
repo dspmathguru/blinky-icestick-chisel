@@ -4,13 +4,13 @@ import circt.stage.ChiselStage
 import chisel3._
 
 object BlinkyMain extends App {
-  class BlinkyWrapper extends RawModule {  // Wrapper to tie rst low
+  class BlinkyWrapper extends RawModule { // Wrapper to tie rst low
     val clk = IO(Input(Clock()))
     val led = IO(Output(Vec(4, Bool())))
 
-    val bl = Module(new Blinky)
+    val bl = Module(new Blinky(22)) // Specify full counterWidth for production
     bl.clk := clk
-    bl.rst := false.B  // Tie rst to false (no external pin)
+    bl.rst := false.B // Tie rst to false (no external pin)
     led := bl.led
   }
   ChiselStage.emitSystemVerilogFile(

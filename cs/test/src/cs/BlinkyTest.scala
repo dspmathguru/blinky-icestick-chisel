@@ -5,7 +5,7 @@ import chisel3.simulator._
 import org.scalatest.funspec.AnyFunSpec
 
 class BlinkyTestHarness(counterWidth: Int = 4) extends Module {
-  val bl = Module(new Blinky)  // Use Blinky from cs.src.cs
+  val bl = Module(new Blinky(counterWidth))  // Pass counterWidth
   bl.clk := clock
   bl.rst := reset  // Connect to implicit reset
   val led = IO(Output(Vec(4, Bool())))
